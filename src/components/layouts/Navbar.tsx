@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link to="/">
           <div className="flex items-center justify-center mx-2">
             <img
-              src="https://img.freepik.com/premium-vector/fitness-workout-weight-sport-gym-tools-exercise-equipment-vector-image-gym-logo-fitness-tools_445443-47.jpg"
+              src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAyL3Zwcm9qZWN0MjkxYmF0Y2gyMi1udW5vb24tMDktYm9va3Nob3BfMS5wbmc.png"
               alt=""
               className="w-14"
             />
