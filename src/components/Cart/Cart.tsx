@@ -6,6 +6,7 @@ import CartDetails from "./CartDetails";
 
 const Cart = () => {
   const { products, total } = useAppSelector((state) => state.cart);
+  console.log(products);
   return (
     <div>
       {products.length > 0 && (

@@ -45,7 +45,7 @@ const Product = (product: IBook) => {
 
           <CardFooter>
             <Button className="w-2/4">
-              <Link to={`/service/${product?.product?._id}`}>Book Now</Link>
+              <Link to={`/product/${product?.product?._id}`}>Book Now</Link>
             </Button>
           </CardFooter>
         </Card>

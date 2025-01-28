@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { addToCart, removeFromCart } from "@/redux/features/cart/cartSlice";
 
 import { useAppDispatch } from "@/redux/hooks";
 import { Button } from "../ui/button";
 
 const CartDetails = ({ product }: any) => {
+  console.log(product);
   const dispatch = useAppDispatch();
   return (
     <div className="h-38 bg-gray-100 rounded-xl shadow duration-300 hover:bg-white hover:shadow-xl m-3 p-2 flex justify-between">
