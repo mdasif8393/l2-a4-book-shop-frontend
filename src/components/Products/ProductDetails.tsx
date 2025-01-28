@@ -52,7 +52,7 @@ const ProductDetails = () => {
         <CardFooter>
           <Button
             disabled={
-              cartProduct && cartProduct?.quantity >= cartProduct?.stockQuantity
+              cartProduct && cartProduct?.quantity >= data?.data?.stockQuantity
             }
             onClick={() => {
               dispatch(addToCart(data?.data));

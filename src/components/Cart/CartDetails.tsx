@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { addToCart, removeFromCart } from "@/redux/features/cart/cartSlice";
 
+import { useGetSingleProductQuery } from "@/redux/features/Products/Products.api";
 import { useAppDispatch } from "@/redux/hooks";
 import { Button } from "../ui/button";
 
 const CartDetails = ({ product }: any) => {
-  console.log(product);
+  const { data: book, isLoading } = useGetSingleProductQuery(product?._id);
+
   const dispatch = useAppDispatch();
+
   return (
     <div className="h-38 bg-gray-100 rounded-xl shadow duration-300 hover:bg-white hover:shadow-xl m-3 p-2 flex justify-between">
       <div className="flex justify-center items-center mr-2">
@@ -29,7 +32,7 @@ const CartDetails = ({ product }: any) => {
           <span className="font-bold text-gray-800">{product?.quantity}</span>
           <Button
             onClick={() => dispatch(addToCart(product))}
-            disabled={product && product?.quantity >= product?.stockQuantity}
+            disabled={product && product?.quantity >= book?.data?.stockQuantity}
             variant="outline"
             className="ml-4"
           >
