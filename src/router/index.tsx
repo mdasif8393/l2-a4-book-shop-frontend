@@ -1,6 +1,7 @@
 import Home from "@/components/Home/Home";
 import MainLayout from "@/components/layouts/MainLayout";
 import NotFound from "@/components/NotFound/NotFound";
+import ProductDetails from "@/components/Products/ProductDetails";
 import Products from "@/components/Products/Products";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "products",
         element: <Products />,
+      },
+      {
+        path: "product/:productId",
+        element: <ProductDetails />,
       },
       //   {
       //     path: "checkout",

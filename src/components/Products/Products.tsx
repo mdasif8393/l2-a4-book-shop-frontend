@@ -5,7 +5,6 @@ import Product from "./Product";
 
 const Products = () => {
   const { data: products, isLoading } = useGetAllProductsQuery(undefined);
-  console.log(products?.data?.result);
 
   if (isLoading) {
     return <Spinner />;
