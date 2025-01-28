@@ -1,3 +1,4 @@
+import Cart from "@/components/Cart/Cart";
 import Home from "@/components/Home/Home";
 import MainLayout from "@/components/layouts/MainLayout";
 import NotFound from "@/components/NotFound/NotFound";
@@ -38,10 +39,10 @@ const router = createBrowserRouter([
       //     path: "checkout",
       //     element: <Checkout />,
       //   },
-      //   {
-      //     path: "cart",
-      //     element: <Cart />,
-      //   },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
       //   {
       //     path: "success",
       //     element: <Success />,
