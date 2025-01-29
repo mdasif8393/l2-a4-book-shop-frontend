@@ -16,7 +16,39 @@ const ProductsApi = baseApi.injectEndpoints({
         };
       },
     }),
+    deleteProduct: builder.mutation({
+      query: (productId) => {
+        return {
+          url: `/products/${productId}`,
+          method: "DELETE",
+        };
+      },
+    }),
+    updateProduct: builder.mutation({
+      query: (options) => {
+        return {
+          url: `/products/${options?.id}`,
+          method: "PUT",
+          body: options?.data,
+        };
+      },
+    }),
+    addProduct: builder.mutation({
+      query: (options) => {
+        return {
+          url: "/products",
+          method: "POST",
+          body: options,
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetAllProductsQuery, useGetSingleProductQuery } = ProductsApi;
+export const {
+  useGetAllProductsQuery,
+  useGetSingleProductQuery,
+  useAddProductMutation,
+  useDeleteProductMutation,
+  useUpdateProductMutation,
+} = ProductsApi;
