@@ -2,6 +2,7 @@ import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { setUser } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import Button from "@/utils/Button";
+import { verifyToken } from "@/utils/verifyToken";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -29,7 +30,8 @@ const SignIn = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     console.log(data);
     const res = await login(data).unwrap();
-    dispatch(setUser({ user: res?.data, token: res?.token }));
+    const user = verifyToken(res?.data?.token);
+    dispatch(setUser({ user: user, token: res?.data?.token }));
   };
 
   return (

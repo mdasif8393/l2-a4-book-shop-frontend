@@ -26,11 +26,11 @@ const Navbar = () => {
         <Link to="/">
           <div className="flex items-center justify-center mx-2">
             <img
-              src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAyL3Zwcm9qZWN0MjkxYmF0Y2gyMi1udW5vb24tMDktYm9va3Nob3BfMS5wbmc.png"
+              src="https://st2.depositphotos.com/3096625/7016/v/950/depositphotos_70164727-stock-illustration-book-shop-logo-on-black.jpg"
               alt=""
               className="w-14"
             />
-            <h4 className="text-xl font-bold text-white ml-2">Gym Tools</h4>
+            <h4 className="text-xl font-bold text-white ml-2">Book Shop</h4>
           </div>
         </Link>
         <NavigationMenuList>
