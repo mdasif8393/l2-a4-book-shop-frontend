@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   useAddProductMutation,
   useDeleteProductMutation,
@@ -32,7 +33,8 @@ const ProductManagementContent = ({ product }: any) => {
   };
 
   const [formData, setFormData] = useState({
-    name: "",
+    title: "",
+    author: "",
     price: 0,
     stockQuantity: 0,
     description: "",
@@ -58,7 +60,8 @@ const ProductManagementContent = ({ product }: any) => {
   const handleUpdateFormSubmit = (e: any) => {
     e.preventDefault();
     const typeChangeFormData = {
-      name: formData?.name,
+      title: formData?.title,
+      author: formData?.author,
       price: Number(formData?.price),
       stockQuantity: Number(formData?.stockQuantity),
       description: formData?.description,
@@ -77,7 +80,8 @@ const ProductManagementContent = ({ product }: any) => {
   };
 
   const [productInfo, setProductInfo] = useState({
-    name: "",
+    title: "",
+    author: "",
     price: 0,
     stockQuantity: 0,
     description: "",
@@ -89,7 +93,10 @@ const ProductManagementContent = ({ product }: any) => {
 
   const handleProductSubmit = (e: any) => {
     e.preventDefault();
-    addProduct(productInfo);
+    addProduct({
+      ...productInfo,
+      inStock: true,
+    });
     toast.success("product added successfully");
   };
 
@@ -99,8 +106,9 @@ const ProductManagementContent = ({ product }: any) => {
         {" "}
         <img className="h-12 w-12" src={product?.image} alt="" />{" "}
       </TableCell>
-      <TableCell>{product?.name}</TableCell>
-      <TableCell>TK {product?.price}</TableCell>
+      <TableCell>{product?.title}</TableCell>
+      <TableCell>{product?.author}</TableCell>
+      <TableCell>$ {product?.price}</TableCell>
       <TableCell>{product?.category}</TableCell>
       <TableCell>
         {/* ADD Product */}
@@ -113,14 +121,24 @@ const ProductManagementContent = ({ product }: any) => {
               <SheetTitle>Add Product Information</SheetTitle>
               <SheetDescription>
                 <form onSubmit={handleProductSubmit}>
-                  <Label htmlFor="name">Product Name</Label>
+                  <Label htmlFor="title">Product Title</Label>
                   <Input
                     type="text"
-                    placeholder="Product Name"
-                    id="name"
-                    name="name"
+                    placeholder="Product Title"
+                    id="title"
+                    name="title"
                     onBlur={(e) =>
-                      setProductInfo({ ...productInfo, name: e.target.value })
+                      setProductInfo({ ...productInfo, title: e.target.value })
+                    }
+                  />
+                  <Label htmlFor="title">Product Author</Label>
+                  <Input
+                    type="text"
+                    placeholder="Author"
+                    id="author"
+                    name="author"
+                    onBlur={(e) =>
+                      setProductInfo({ ...productInfo, author: e.target.value })
                     }
                   />
                   <Label htmlFor="price">Product Price</Label>
@@ -212,13 +230,22 @@ const ProductManagementContent = ({ product }: any) => {
               <SheetTitle>Update Information of {product?.name}</SheetTitle>
               <SheetDescription>
                 <form onSubmit={handleUpdateFormSubmit}>
-                  <Label htmlFor="name">Product Name</Label>
+                  <Label htmlFor="title">Product Title</Label>
                   <Input
                     type="text"
-                    placeholder="Product Name"
-                    id="name"
-                    name="name"
-                    defaultValue={product?.name || ""}
+                    placeholder="Product Title"
+                    id="title"
+                    name="title"
+                    defaultValue={product?.title || ""}
+                    onChange={handleChange}
+                  />
+                  <Label htmlFor="title">Author</Label>
+                  <Input
+                    type="text"
+                    placeholder="Author"
+                    id="author"
+                    name="author"
+                    defaultValue={product?.author || ""}
                     onChange={handleChange}
                   />
                   <Label htmlFor="price">Product Price</Label>

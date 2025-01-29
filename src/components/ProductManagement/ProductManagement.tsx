@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { useGetAllProductsQuery } from "@/redux/features/Products/Products.api";
 import Spinner from "@/utils/Spinner";
 import {
@@ -26,6 +25,8 @@ const ProductManagement = () => {
   //   }
   // };
 
+  console.log(data?.data?.result);
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -38,17 +39,19 @@ const ProductManagement = () => {
           <TableRow>
             <TableHead>Image</TableHead>
             <TableHead>Name</TableHead>
+            <TableHead>Author</TableHead>
             <TableHead>Price</TableHead>
             <TableHead>Category</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.data.map((product: any) => (
+          {data?.data?.result?.map((product: any) => (
             <ProductManagementContent product={product} />
           ))}
         </TableBody>
       </Table>
+      <h1>Product management</h1>
     </div>
   );
 };
