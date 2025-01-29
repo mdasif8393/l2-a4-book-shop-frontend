@@ -1,3 +1,4 @@
+import AboutUs from "@/components/About.Ustsx/AboutUs";
 import SignIn from "@/components/Authentication/SignIn";
 import SignUp from "@/components/Authentication/SignUp";
 import Cart from "@/components/Cart/Cart";
@@ -18,10 +19,10 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      //   {
-      //     path: "about",
-      //     element: <AboutUs />,
-      //   },
+      {
+        path: "about",
+        element: <AboutUs />,
+      },
       //   {
       //     path: "product/:productId",
       //     element: <SingleProduct />,
