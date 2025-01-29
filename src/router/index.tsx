@@ -1,3 +1,5 @@
+import SignIn from "@/components/Authentication/SignIn";
+import SignUp from "@/components/Authentication/SignUp";
 import Cart from "@/components/Cart/Cart";
 import Checkout from "@/components/Checkout/Checkout";
 import Home from "@/components/Home/Home";
@@ -43,6 +45,14 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "signIn",
+        element: <SignIn />,
+      },
+      {
+        path: "signUp",
+        element: <SignUp />,
       },
       //   {
       //     path: "success",

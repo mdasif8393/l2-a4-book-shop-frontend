@@ -1,4 +1,7 @@
+import { logout } from "@/redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -9,8 +12,16 @@ import {
 
 const Navbar = () => {
   // const { products } = useAppSelector((state) => state.cart);
+  const user = useAppSelector((state) => state.auth.user);
+
+  const dispatch = useAppDispatch();
+
+  const handleLogOut = () => {
+    dispatch(logout());
+    toast.success("User logged out successfully");
+  };
   return (
-    <div className="flex items-center justify-center bg-gray-900 h-20">
+    <div className="flex items-center justify-center bg-gray-900 h-24">
       <NavigationMenu>
         <Link to="/">
           <div className="flex items-center justify-center mx-2">
@@ -39,6 +50,21 @@ const Navbar = () => {
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <Link to="/checkout">Checkout</Link>
             </NavigationMenuLink>
+            {!user && (
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <Link to="/signIn">Sign In</Link>
+              </NavigationMenuLink>
+            )}
+            {!user && (
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <Link to="/signUp">Sign Up</Link>
+              </NavigationMenuLink>
+            )}
+            {user && (
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <button onClick={handleLogOut}>LogOut</button>
+              </NavigationMenuLink>
+            )}
           </NavigationMenuItem>
         </NavigationMenuList>
         <Link to="/cart">
@@ -66,6 +92,9 @@ const Navbar = () => {
             </div>
           </div>
         </Link>
+        {user && (
+          <p className="text-white font-bold ml-2">Welcome {user?.name}</p>
+        )}
       </NavigationMenu>
     </div>
   );
