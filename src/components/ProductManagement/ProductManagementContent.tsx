@@ -28,6 +28,7 @@ const ProductManagementContent = ({ product }: any) => {
   const handleProductDelete = async (productId: string) => {
     const confirmPronPrompt = prompt("Write delete to remove product");
     if (confirmPronPrompt === "delete") {
+      deleteProduct(productId);
       toast("Product is deleted successfully");
       navigate("/product-management");
     } else {
