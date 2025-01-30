@@ -25,8 +25,6 @@ const ProductManagement = () => {
   //   }
   // };
 
-  console.log(data?.data?.result);
-
   if (isLoading) {
     return <Spinner />;
   }

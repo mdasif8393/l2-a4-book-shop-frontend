@@ -5,6 +5,8 @@ import {
   useUpdateProductMutation,
 } from "@/redux/features/Products/Products.api";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -20,13 +22,14 @@ import {
 import { TableCell, TableRow } from "../ui/table";
 
 const ProductManagementContent = ({ product }: any) => {
-  const [deleteProduct] = useDeleteProductMutation();
+  const navigate = useNavigate();
+  const [deleteProduct, { isLoading: dIsLoading }] = useDeleteProductMutation();
 
-  const handleProductDelete = (productId: string) => {
+  const handleProductDelete = async (productId: string) => {
     const confirmPronPrompt = prompt("Write delete to remove product");
     if (confirmPronPrompt === "delete") {
-      deleteProduct(productId);
       toast("Product is deleted successfully");
+      navigate("/product-management");
     } else {
       toast("Wrong Input");
     }
@@ -55,7 +58,7 @@ const ProductManagementContent = ({ product }: any) => {
     }));
   };
 
-  const [updateData] = useUpdateProductMutation();
+  const [updateData, { isLoading: uIsLoading }] = useUpdateProductMutation();
 
   const handleUpdateFormSubmit = (e: any) => {
     e.preventDefault();
@@ -75,8 +78,8 @@ const ProductManagementContent = ({ product }: any) => {
     };
 
     updateData(options);
-
     toast.success("product updated successfully");
+    navigate("/product-management");
   };
 
   const [productInfo, setProductInfo] = useState({
@@ -215,12 +218,14 @@ const ProductManagementContent = ({ product }: any) => {
             </SheetHeader>
           </SheetContent>
         </Sheet>
+        {/* Delete */}
         <Button
           variant="destructive"
           onClick={() => handleProductDelete(product?._id)}
         >
           Delete
         </Button>
+        {/* update */}
         <Sheet>
           <SheetTrigger>
             <Button className="bg-slate-600 ms-1">Update</Button>
