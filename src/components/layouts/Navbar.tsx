@@ -48,6 +48,9 @@ const Navbar = () => {
               <Link to="/product-management">Product Management</Link>
             </NavigationMenuLink>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Link to="/order-management">Order Management</Link>
+            </NavigationMenuLink>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <Link to="/checkout">Checkout</Link>
             </NavigationMenuLink>
             {!user && (
