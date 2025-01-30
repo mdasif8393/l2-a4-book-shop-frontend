@@ -27,7 +27,6 @@ const SignUp = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     data.role = "user";
     await signUp(data).unwrap();
-    console.log(data);
   };
   return (
     <div className="container">

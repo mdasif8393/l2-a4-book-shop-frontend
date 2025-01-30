@@ -17,29 +17,40 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   const { products, total } = useAppSelector((state: any) => state.cart);
+  const { email: userEmail } = useAppSelector((state: any) => state.auth.user);
 
   const [user, setUser] = useState({
     name: "",
+    contactNumber: "",
     email: "",
-    number: "",
+    totalPrice: 0,
     address: "",
+    status: "",
     products: [],
   });
 
-  const [postOrder, { isLoading }] = usePostOrderMutation();
+  const [postOrder, { isLoading: pIsLoading }] = usePostOrderMutation();
 
   const dispatch = useAppDispatch();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    user.products = products;
-    postOrder(user);
-    dispatch(clearCart());
-    toast.success("Order created successfully");
-    navigate("/success");
+    user.products = products.map((product: any) => ({
+      product: product._id,
+      quantity: product.quantity,
+    }));
+    user.email = userEmail;
+    user.status = "pending";
+    user.totalPrice = Number(total.toFixed(2));
+    const res = await postOrder(user);
+    if (res?.data?.status) {
+      dispatch(clearCart());
+      navigate("/success");
+      toast.success("Order created successfully");
+    }
   };
 
-  if (isLoading) {
+  if (pIsLoading) {
     return <Spinner />;
   }
   return (
@@ -55,21 +66,16 @@ const Checkout = () => {
               id="name"
               name="name"
             />
-            <Label htmlFor="email">Your Name</Label>
-            <Input
-              type="email"
-              placeholder="Your Email"
-              id="email"
-              name="email"
-              onBlur={(e) => setUser({ ...user, email: e.target.value })}
-            />
+
             <Label htmlFor="number">Your Phone Number</Label>
             <Input
               type="number"
-              id="number"
-              name="number"
+              id="contactNumber"
+              name="contactNumber"
               placeholder="Your Phone Number"
-              onBlur={(e) => setUser({ ...user, number: e.target.value })}
+              onBlur={(e) =>
+                setUser({ ...user, contactNumber: e.target.value })
+              }
             />
             <Label htmlFor="number">Your Address</Label>
             <Input

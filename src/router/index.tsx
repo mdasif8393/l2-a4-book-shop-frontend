@@ -9,6 +9,7 @@ import NotFound from "@/components/NotFound/NotFound";
 import ProductManagement from "@/components/ProductManagement/ProductManagement";
 import ProductDetails from "@/components/Products/ProductDetails";
 import Products from "@/components/Products/Products";
+import Success from "@/components/Success/Success";
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -56,10 +57,10 @@ const router = createBrowserRouter([
         path: "signUp",
         element: <SignUp />,
       },
-      //   {
-      //     path: "success",
-      //     element: <Success />,
-      //   },
+      {
+        path: "success",
+        element: <Success />,
+      },
       //   {
       //     path: "category-products/:category",
       //     element: <CategoryProducts />,

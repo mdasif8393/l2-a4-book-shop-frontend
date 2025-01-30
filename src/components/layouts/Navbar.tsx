@@ -11,7 +11,7 @@ import {
 } from "../ui/navigation-menu";
 
 const Navbar = () => {
-  // const { products } = useAppSelector((state) => state.cart);
+  const { products } = useAppSelector((state) => state.cart);
   const user = useAppSelector((state) => state.auth.user);
 
   const dispatch = useAppDispatch();
@@ -72,7 +72,7 @@ const Navbar = () => {
             <div className="relative py-2">
               <div className="t-0 absolute left-3">
                 <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
-                  {/* {products?.length} */}
+                  {products?.length}
                 </p>
               </div>
               <svg
