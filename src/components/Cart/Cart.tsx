@@ -8,7 +8,12 @@ const Cart = () => {
   const { products, total } = useAppSelector((state) => state.cart);
 
   return (
-    <div>
+    <div className="w-3/4 mx-auto mt-10">
+      {products.length <= 0 && (
+        <h1 className="text-3xl text-red-500 font-bold text-center">
+          No Items in cart
+        </h1>
+      )}
       {products.length > 0 && (
         <p className="text-lg">
           Total Price:{" "}

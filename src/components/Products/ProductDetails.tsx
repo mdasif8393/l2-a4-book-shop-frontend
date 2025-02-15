@@ -25,7 +25,7 @@ const ProductDetails = () => {
   const cartProduct = products.find((p: any) => p._id === productId);
 
   return (
-    <div className="my-10 grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1 px-6">
+    <div className=" grid lg:grid-cols-3 md:grid-cols-2 gap-4 sm:grid-cols-1 w-[90%] mx-auto mt-10">
       <div className="basis-1/4">
         <img
           className="object-contain max-w-lg"

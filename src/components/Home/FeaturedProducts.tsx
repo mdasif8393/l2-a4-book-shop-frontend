@@ -182,7 +182,7 @@ const FeaturedProducts = () => {
         <div className="flex items-center justify-center">
           <Link to="/products" className="inline-flex">
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-gray-900 hover:bg-gray-700 hover:text-white transition duration-500 ease-in-out">
-              See All Books
+              View All Books
             </span>
             <span className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-gray-900 hover:bg-gray-700 hover:text-white transition duration-500 ease-in-out">
               <svg

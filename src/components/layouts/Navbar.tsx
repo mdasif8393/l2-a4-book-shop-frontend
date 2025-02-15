@@ -43,17 +43,24 @@ const Navbar = () => {
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <Link to="/products">All Products</Link>
             </NavigationMenuLink>
+
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Link to="/dashboard">Dashboard</Link>
+            </NavigationMenuLink>
+
+            {user && user?.role === "admin" && (
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <Link to="/order-management">Order Management</Link>
+              </NavigationMenuLink>
+            )}
+
+            {user && user?.role === "user" && (
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <Link to="/checkout">Checkout</Link>
+              </NavigationMenuLink>
+            )}
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <Link to="/about">About US</Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link to="/product-management">Product Management</Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link to="/order-management">Order Management</Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link to="/checkout">Checkout</Link>
             </NavigationMenuLink>
             {!user && (
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -98,7 +105,7 @@ const Navbar = () => {
           </div>
         </Link>
         {user && (
-          <p className="text-white font-bold ml-2">Welcome {user?.name}</p>
+          <p className="text-white font-bold ml-2">Welcome {user?.role} </p>
         )}
       </NavigationMenu>
     </div>

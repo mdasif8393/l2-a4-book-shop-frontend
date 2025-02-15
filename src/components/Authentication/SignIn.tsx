@@ -35,7 +35,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container w-[90%] mx-auto">
       <div className="font-[sans-serif]">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 items-center lg:gap-10 gap-4">
           <div className="max-md:order-1 h-screen min-h-full">

@@ -29,7 +29,7 @@ const SignUp = () => {
     await signUp(data).unwrap();
   };
   return (
-    <div className="container">
+    <div className="container w-[90%] mx-auto">
       <div className="font-[sans-serif]">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 items-center lg:gap-10 gap-4">
           <div className="max-md:order-1 h-screen min-h-full">
@@ -80,7 +80,7 @@ const SignUp = () => {
                   type="email"
                   required
                   className="bg-transparent w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-600 px-2 py-3 outline-none"
-                  placeholder="Enter password"
+                  placeholder="Enter Email"
                 />
               </div>
             </div>

@@ -97,6 +97,11 @@ const Checkout = () => {
       </div>
       <div>
         <div>
+          {products.length <= 0 && (
+            <p className="text-3xl font-bold text-center text-red-500">
+              Cart is empty
+            </p>
+          )}
           {products.length > 0 && (
             <p>
               Total Price: <span className="font-semibold">$ {total}</span>

@@ -11,13 +11,11 @@ const Products = () => {
   }
 
   return (
-    <div>
-      <div className="flex flex-row mt-6">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3">
-          {products?.data?.result.map((product: IBook) => (
-            <Product product={product} key={product._id} />
-          ))}
-        </div>
+    <div className="w-[90%] mx-auto mt-10">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3">
+        {products?.data?.result.map((product: IBook) => (
+          <Product product={product} key={product._id} />
+        ))}
       </div>
     </div>
   );
