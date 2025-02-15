@@ -8,7 +8,7 @@ const Dashboard = () => {
   return (
     <div className="w-[90%]">
       <h1 className="text-3xl text-center font-bold text-red-500 mt-10">
-        Welcome to Dashboard
+        Welcome to {user?.role} Dashboard
       </h1>
       <div className="flex justify-center items-center mt-10">
         <div>

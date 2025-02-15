@@ -27,7 +27,7 @@ const authApi = baseApi.injectEndpoints({
     blockUser: builder.mutation({
       query: (userId) => {
         return {
-          url: `/admin/users/${userId}`,
+          url: `/admin/users/${userId}/block`,
           method: "PATCH",
         };
       },

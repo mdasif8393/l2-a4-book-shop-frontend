@@ -20,7 +20,7 @@ const OrderManagements = () => {
     return <Spinner />;
   }
   return (
-    <div>
+    <div className="w-[90%] mx-auto">
       <Table>
         <TableCaption>A list of Products</TableCaption>
         <TableHeader>
