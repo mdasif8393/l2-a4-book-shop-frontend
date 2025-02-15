@@ -1,6 +1,6 @@
 import { logout } from "@/redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import {
   NavigationMenu,
@@ -11,6 +11,7 @@ import {
 } from "../ui/navigation-menu";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { products } = useAppSelector((state) => state.cart);
   const user = useAppSelector((state) => state.auth.user);
 
@@ -19,9 +20,10 @@ const Navbar = () => {
   const handleLogOut = () => {
     dispatch(logout());
     toast.success("User logged out successfully");
+    navigate("/signIn");
   };
   return (
-    <div className="flex items-center justify-center bg-gray-900 h-24">
+    <div className="flex items-center justify-center bg-gray-900 h-28">
       <NavigationMenu>
         <Link to="/">
           <div className="flex items-center justify-center mx-2">
@@ -39,7 +41,7 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </NavigationMenuLink>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <Link to="/products">Products</Link>
+              <Link to="/products">All Products</Link>
             </NavigationMenuLink>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <Link to="/about">About US</Link>

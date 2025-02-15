@@ -5,7 +5,7 @@ import UserReviews from "./UserReviews";
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-[90%]">
       <HeroSection />
       <Category />
       <FeaturedProducts />

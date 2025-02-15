@@ -8,6 +8,8 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 
+import { TypeAnimation } from "react-type-animation";
+
 const HeroSection = () => {
   return (
     <section className="bg-white dark:bg-gray-900">
@@ -16,6 +18,23 @@ const HeroSection = () => {
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold  leading-none md:text-5xl xl:text-6xl dark:text-white">
             Bangladesh’s #1 Online Book Shop
           </h1>
+          <TypeAnimation
+            sequence={[
+              // Same substring at the start will only be typed out once, initially
+              "Same day delivery",
+              1000, // wait 1s before replacing "Mice" with "Hamsters"
+              "7 days easy return",
+              1000,
+              "Get 10% discount",
+              1000,
+              "Cash on delivery available",
+              1000,
+            ]}
+            wrapper="span"
+            speed={50}
+            style={{ fontSize: "2em", display: "inline-block" }}
+            repeat={Infinity}
+          />
           <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
             My online bookshop will offer a wide selection of books, including
             fiction, non-fiction, academic titles, and rare finds. With a

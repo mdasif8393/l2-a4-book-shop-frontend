@@ -10,6 +10,7 @@ import OrderManagements from "@/components/OrderManagement/OrderManagements";
 import ProductManagement from "@/components/ProductManagement/ProductManagement";
 import ProductDetails from "@/components/Products/ProductDetails";
 import Products from "@/components/Products/Products";
+import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 import Success from "@/components/Success/Success";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -48,7 +49,11 @@ const router = createBrowserRouter([
       },
       {
         path: "checkout",
-        element: <Checkout />,
+        element: (
+          <ProtectedRoute>
+            <Checkout />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "cart",
