@@ -20,7 +20,7 @@ const UserOrders = () => {
   if (isLoading) {
     return <Spinner />;
   }
-  console.log(data?.data);
+
   return (
     <div className="w-[90%] mx-auto">
       <Table>

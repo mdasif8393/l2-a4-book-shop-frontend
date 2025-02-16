@@ -2,6 +2,7 @@ import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { setUser } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import Button from "@/utils/Button";
+import Spinner from "@/utils/Spinner";
 import { verifyToken } from "@/utils/verifyToken";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,7 +17,11 @@ const SignIn = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const [login, { data, isError }] = useLoginMutation();
+  const [login, { data, error, isLoading }] = useLoginMutation();
+
+  if (error) {
+    toast.error(error?.data?.message);
+  }
 
   if (data?.success) {
     toast.success("User Logged in successfully");
@@ -28,11 +33,14 @@ const SignIn = () => {
 
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    console.log(data);
     const res = await login(data).unwrap();
     const user = verifyToken(res?.data?.token);
     dispatch(setUser({ user: user, token: res?.data?.token }));
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className="container w-[90%] mx-auto">

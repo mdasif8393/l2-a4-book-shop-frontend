@@ -1,5 +1,6 @@
 import { useSignUpMutation } from "@/redux/features/auth/authApi";
 import Button from "@/utils/Button";
+import Spinner from "@/utils/Spinner";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -16,8 +17,11 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const [signUp, { data }] = useSignUpMutation();
-
+  const [signUp, { data, error, isLoading }] = useSignUpMutation();
+  console.log(error);
+  if (error) {
+    toast.error(error?.data?.message);
+  }
   if (data?.success) {
     toast.success("User created successfully, Please Sign In");
     navigate("/signin");
@@ -28,6 +32,10 @@ const SignUp = () => {
     data.role = "user";
     await signUp(data).unwrap();
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
     <div className="container w-[90%] mx-auto">
       <div className="font-[sans-serif]">

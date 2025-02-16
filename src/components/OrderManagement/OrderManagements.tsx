@@ -14,8 +14,6 @@ import OrderManagement from "./OrderManagement";
 const OrderManagements = () => {
   const { data: products, isLoading } = useGetAllOrdersQuery(undefined);
 
-  console.log(products?.data?.result);
-
   if (isLoading) {
     return <Spinner />;
   }

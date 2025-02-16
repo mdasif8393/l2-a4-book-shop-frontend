@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { Button } from "../ui/button";
 
 const CartDetails = ({ product }: any) => {
-  const { data: book, isLoading } = useGetSingleProductQuery(product?._id);
+  const { data: book } = useGetSingleProductQuery(product?._id);
 
   const dispatch = useAppDispatch();
 

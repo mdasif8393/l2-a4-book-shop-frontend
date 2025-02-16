@@ -2,7 +2,6 @@ import { TableCell, TableRow } from "../ui/table";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const UserOrder = ({ order }: any) => {
-  console.log(order);
   return (
     <TableRow key={order?._id}>
       <TableCell>{order?._id}</TableCell>
