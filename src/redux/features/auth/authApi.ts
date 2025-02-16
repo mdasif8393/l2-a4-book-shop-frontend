@@ -33,6 +33,16 @@ const authApi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["users"],
     }),
+    updateUserInfo: builder.mutation({
+      query: (options) => {
+        return {
+          url: `/auth/user/${options?.id}`,
+          method: "PUT",
+          body: options?.data,
+        };
+      },
+      invalidatesTags: ["users"],
+    }),
   }),
 });
 
@@ -41,4 +51,5 @@ export const {
   useSignUpMutation,
   useBlockUserMutation,
   useGetAllUsersQuery,
+  useUpdateUserInfoMutation,
 } = authApi;

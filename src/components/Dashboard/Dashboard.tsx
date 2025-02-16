@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const user = useAppSelector((state) => state.auth.user);
-  console.log(user);
+
   return (
     <div className="w-[90%]">
       <h1 className="text-3xl text-center font-bold text-red-500 mt-10">
@@ -33,10 +33,14 @@ const Dashboard = () => {
           <br />
           {user && user.role === "user" && (
             <div>
-              <Button text="View Orders"></Button>
+              <Link to="/user-order">
+                <Button text="View Orders"></Button>
+              </Link>
               <br />
               <br />
-              <Button text="Edit Profile"></Button>
+              <Link to="/user-profile">
+                <Button text="Edit Profile"></Button>
+              </Link>
             </div>
           )}
           <br />

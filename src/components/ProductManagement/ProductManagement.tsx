@@ -49,7 +49,7 @@ const ProductManagement = () => {
           ))}
         </TableBody>
       </Table>
-      <h1>Product management</h1>
+      <h1>Product management Table</h1>
     </div>
   );
 };

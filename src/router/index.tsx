@@ -14,6 +14,8 @@ import Products from "@/components/Products/Products";
 import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 import Success from "@/components/Success/Success";
 import UserManagements from "@/components/UserManagement/UserManagements";
+import UserOrders from "@/components/UserOrders/UserOrders";
+import UserProfile from "@/components/UserProfile/UserProfile";
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -92,6 +94,14 @@ const router = createBrowserRouter([
       {
         path: "success",
         element: <Success />,
+      },
+      {
+        path: "user-order",
+        element: <UserOrders />,
+      },
+      {
+        path: "user-profile",
+        element: <UserProfile />,
       },
       //   {
       //     path: "category-products/:category",
