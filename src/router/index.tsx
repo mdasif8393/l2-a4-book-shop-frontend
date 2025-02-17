@@ -16,6 +16,7 @@ import Success from "@/components/Success/Success";
 import UserManagements from "@/components/UserManagement/UserManagements";
 import UserOrders from "@/components/UserOrders/UserOrders";
 import UserProfile from "@/components/UserProfile/UserProfile";
+import VerifyOrder from "@/components/VerifyOrder/VerifyOrder";
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: "user-profile",
         element: <UserProfile />,
+      },
+      {
+        path: "order-verify",
+        element: <VerifyOrder />,
       },
       //   {
       //     path: "category-products/:category",

@@ -39,7 +39,6 @@ const OrderManagements = () => {
           ))}
         </TableBody>
       </Table>
-      <h1>Product management</h1>
     </div>
   );
 };

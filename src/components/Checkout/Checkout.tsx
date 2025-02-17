@@ -6,7 +6,6 @@ import { clearCart } from "@/redux/features/cart/cartSlice";
 import { usePostOrderMutation } from "@/redux/features/order/order.api";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import Spinner from "@/utils/Spinner";
-import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import CartDetails from "../Cart/CartDetails";
 import { Button } from "../ui/button";
@@ -14,8 +13,6 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 
 const Checkout = () => {
-  const navigate = useNavigate();
-
   const { products, total } = useAppSelector((state: any) => state.cart);
   const { email: userEmail } = useAppSelector((state: any) => state.auth.user);
 
@@ -29,9 +26,10 @@ const Checkout = () => {
     products: [],
   });
 
-  const [postOrder, { isLoading: pIsLoading }] = usePostOrderMutation();
+  const [postOrder, { isLoading }] = usePostOrderMutation();
 
   const dispatch = useAppDispatch();
+  const toastId = "cart";
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -43,14 +41,22 @@ const Checkout = () => {
     user.status = "pending";
     user.totalPrice = Number(total.toFixed(2));
     const res = await postOrder(user);
+    // if (res?.data?.status) {
+    //   dispatch(clearCart());
+    //   toast.success("Order created successfully");
+    // }
     if (res?.data?.status) {
-      dispatch(clearCart());
-      navigate("/success");
-      toast.success("Order created successfully");
+      toast.success("Order placed Successfully", { id: toastId });
+      if (res?.data?.data) {
+        dispatch(clearCart());
+        setTimeout(() => {
+          window.location.href = res?.data?.data;
+        }, 500);
+      }
     }
   };
 
-  if (pIsLoading) {
+  if (isLoading) {
     return <Spinner />;
   }
   return (

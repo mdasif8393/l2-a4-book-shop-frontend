@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGetAllProductsQuery } from "@/redux/features/Products/Products.api";
 import Spinner from "@/utils/Spinner";
+import { useState } from "react";
 import {
   Table,
   TableBody,
@@ -12,7 +13,10 @@ import {
 import ProductManagementContent from "./ProductManagementContent";
 
 const ProductManagement = () => {
-  const { data, isLoading } = useGetAllProductsQuery(undefined);
+  const query: any = {};
+  const [searchTerm, setSearchTerm] = useState("");
+  query.searchTerm = searchTerm;
+  const { data, isLoading } = useGetAllProductsQuery(query);
   // const [deleteProduct] = useDeleteProductMutation();
 
   // const handleProductDelete = (productId: string) => {

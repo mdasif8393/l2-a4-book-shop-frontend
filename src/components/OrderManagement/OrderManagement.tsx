@@ -87,9 +87,7 @@ const OrderManagement = ({ order }: any) => {
     <TableRow key={order?._id}>
       <TableCell>{order?._id}</TableCell>
       <TableCell
-        className={
-          order?.status === "success" ? "text-green-600" : "text-red-600"
-        }
+        className={order?.status === "paid" ? "text-green-600" : "text-red-600"}
       >
         {order?.status}
       </TableCell>
