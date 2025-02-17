@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSignUpMutation } from "@/redux/features/auth/authApi";
 import Button from "@/utils/Button";
 import Spinner from "@/utils/Spinner";
@@ -27,8 +29,8 @@ const SignUp = () => {
     navigate("/signin");
   }
 
-  const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const { register, handleSubmit } = useForm<any>();
+  const onSubmit: SubmitHandler<any> = async (data) => {
     data.role = "user";
     await signUp(data).unwrap();
   };
