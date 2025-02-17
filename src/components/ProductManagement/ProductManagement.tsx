@@ -14,7 +14,7 @@ import ProductManagementContent from "./ProductManagementContent";
 
 const ProductManagement = () => {
   const query: any = {};
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm] = useState("");
   query.searchTerm = searchTerm;
   const { data, isLoading } = useGetAllProductsQuery(query);
   // const [deleteProduct] = useDeleteProductMutation();

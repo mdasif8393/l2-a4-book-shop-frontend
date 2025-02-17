@@ -23,7 +23,7 @@ const OrderManagement = ({ order }: any) => {
   const navigate = useNavigate();
 
   //delete
-  const [deleteOrder, { isLoading: dIsLoading }] = useDeleteOrderMutation();
+  const [deleteOrder] = useDeleteOrderMutation();
 
   const handleOrderDelete = async (orderId: string) => {
     const confirmPronPrompt = prompt("Write delete to remove order");
@@ -59,7 +59,7 @@ const OrderManagement = ({ order }: any) => {
     }));
   };
 
-  const [updateData, { isLoading: uIsLoading }] = useUpdateOrderMutation();
+  const [updateData] = useUpdateOrderMutation();
 
   const handleUpdateFormSubmit = (e: any) => {
     e.preventDefault();

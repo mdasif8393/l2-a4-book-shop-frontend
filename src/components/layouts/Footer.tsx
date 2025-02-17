@@ -11,7 +11,7 @@ const Footer = () => {
           </h3>
           <p> Knowledge is Power. Gather knowledge to read books </p>
           <div className="flex justify-center my-10">
-            <div className="flex items-center border w-auto rounded-lg px-4 py-2 w-52 mx-2">
+            <div className="flex items-center border w-auto rounded-lg px-4 py-2 mx-2">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/888/888857.png"
                 className="w-7 md:w-8"
@@ -21,7 +21,7 @@ const Footer = () => {
                 <p className="text-sm md:text-base"> Google Play Store </p>
               </div>
             </div>
-            <div className="flex items-center border w-auto rounded-lg px-4 py-2 w-44 mx-2">
+            <div className="flex items-center border w-auto rounded-lg px-4 py-2 mx-2">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/888/888841.png"
                 className="w-7 md:w-8"
@@ -32,7 +32,7 @@ const Footer = () => {
               </div>
             </div>
             <Link to="https://www.facebook.com/md.asif.8393">
-              <div className="flex items-center border w-auto rounded-lg px-4 py-2 w-44 mx-2">
+              <div className="flex items-center border w-auto rounded-lg px-4 py-2 mx-2">
                 <FaFacebook className="w-12 h-12" />
               </div>
             </Link>

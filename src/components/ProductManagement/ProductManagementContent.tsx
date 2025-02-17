@@ -23,7 +23,7 @@ import { TableCell, TableRow } from "../ui/table";
 
 const ProductManagementContent = ({ product }: any) => {
   const navigate = useNavigate();
-  const [deleteProduct, { isLoading: dIsLoading }] = useDeleteProductMutation();
+  const [deleteProduct] = useDeleteProductMutation();
 
   const handleProductDelete = async (productId: string) => {
     const confirmPronPrompt = prompt("Write delete to remove product");
@@ -59,7 +59,7 @@ const ProductManagementContent = ({ product }: any) => {
     }));
   };
 
-  const [updateData, { isLoading: uIsLoading }] = useUpdateProductMutation();
+  const [updateData] = useUpdateProductMutation();
 
   const handleUpdateFormSubmit = (e: any) => {
     e.preventDefault();

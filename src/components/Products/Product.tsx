@@ -1,4 +1,4 @@
-import { IBook } from "@/types/types";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import {
@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "../ui/card";
 
-const Product = (product: IBook) => {
+const Product = (product: any) => {
   return (
     <>
       <Link to={`/product/${product?.product?._id}`}>

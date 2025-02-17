@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { addToCart } from "@/redux/features/cart/cartSlice";
 import { useGetSingleProductQuery } from "@/redux/features/Products/Products.api";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -16,7 +17,7 @@ import {
 
 const ProductDetails = () => {
   const { productId } = useParams();
-  const { data, isLoading } = useGetSingleProductQuery(productId);
+  const { data } = useGetSingleProductQuery(productId);
 
   const dispatch = useAppDispatch();
 
