@@ -1,7 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export interface IUser {
+  _id: string;
+  name: string;
+  email: string;
+  password: string;
+  role: "user" | "admin"; // adjust union as needed if more roles exist
+  isBlocked: boolean;
+  createdAt: string; // or Date if you prefer to convert these
+  updatedAt: string; // or Date if you prefer to convert these
+  __v: number;
+}
+
 type TAuthState = {
-  user: null | object;
+  user: null | IUser;
   token: null | string;
 };
 

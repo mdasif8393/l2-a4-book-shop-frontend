@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGetAllProductsQuery } from "@/redux/features/Products/Products.api";
-import { IBook } from "@/types/types";
 import Spinner from "@/utils/Spinner";
 import { useState } from "react";
 import { Button } from "../ui/button";
@@ -33,7 +32,7 @@ const Products = () => {
         <Button className="ml-2 ">Search Books</Button>
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-3">
-        {products?.data?.result.map((product: IBook) => (
+        {products?.data?.result.map((product: any) => (
           <Product product={product} key={product._id} />
         ))}
       </div>

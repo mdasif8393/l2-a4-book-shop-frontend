@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSignUpMutation } from "@/redux/features/auth/authApi";
 import Button from "@/utils/Button";
@@ -8,22 +7,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const SignUp = () => {
-  type Inputs = {
-    name: string;
-    email: string;
-    password: string;
-    phone: string;
-    role?: string;
-    address: string;
-  };
+  // type Inputs = {
+  //   name: string;
+  //   email: string;
+  //   password: string;
+  //   phone: string;
+  //   role?: string;
+  //   address: string;
+  // };
 
   const navigate = useNavigate();
 
   const [signUp, { data, error, isLoading }] = useSignUpMutation();
   console.log(error);
-  if (error) {
-    toast.error(error?.data?.message);
-  }
+
   if (data?.success) {
     toast.success("User created successfully, Please Sign In");
     navigate("/signin");

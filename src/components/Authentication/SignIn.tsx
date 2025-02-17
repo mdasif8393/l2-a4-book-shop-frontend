@@ -17,11 +17,7 @@ const SignIn = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const [login, { data, error, isLoading }] = useLoginMutation();
-
-  if (error) {
-    toast.error(error?.data?.message);
-  }
+  const [login, { data, isLoading }] = useLoginMutation();
 
   if (data?.success) {
     toast.success("User Logged in successfully");
