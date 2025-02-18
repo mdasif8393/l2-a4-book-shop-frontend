@@ -105,7 +105,7 @@ const router = createBrowserRouter([
         element: <UserProfile />,
       },
       {
-        path: "order-verify",
+        path: "order/verify",
         element: <VerifyOrder />,
       },
       //   {
